@@ -84,6 +84,46 @@ Friendship, TN 38034
 
 </div>
 
+<h2 style="text-align:center;">📢 Announcements</h2>
+
+<div id="announcements" style="
+padding:15px;
+font-size:18px;
+"></div>
+
+
+<script>
+
+fetch("https://opensheet.elk.sh/1b7bf0B0idhG2SJymtebBdZIkHuCbhOmYbeoUukcMxZI/Sheet1")
+.then(res => res.json())
+.then(data => {
+
+let output = "";
+
+data.slice(0,3).forEach(row => {
+
+output += `
+<div style="
+background:#f4f4f4;
+margin:10px;
+padding:15px;
+border-radius:10px;
+">
+
+<b>${row.Title}</b><br>
+${row.Description}
+
+</div>
+`;
+
+});
+
+document.getElementById("announcements").innerHTML = output;
+
+});
+
+</script>
+
 </div>
 
 
